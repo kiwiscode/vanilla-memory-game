@@ -14,36 +14,44 @@ class MemoryGame {
       return undefined;
     }
     // SOLUTION
-    // for (let i = 0; i < this.cards.length; i++) {
-    //   let shuffle = Math.floor(Math.random() * this.cards.length);
+    for (let i = 0; i < this.cards.length; i++) {
+      let shuffle = Math.floor(Math.random() * this.cards.length);
 
-    //   let temp = this.cards[i];
-    //   this.cards[i] = this.cards[shuffle];
-    //   this.cards[shuffle] = temp;
-    // }
+      let temp = this.cards[i];
+      this.cards[i] = this.cards[shuffle];
+      this.cards[shuffle] = temp;
+    }
 
     // SOLUTION => Omar's solution
 
     // const shuffledArray = [];
-    // while (this.cards.length > 1) {
+    // while (this.cards.length) {
     //   const randomIndex = Math.floor(Math.random() * this.cards.length);
-    //   const item = this.cards.splice(randomIndex, 1);
+    //   const [item] = this.cards.splice(randomIndex, 1);
     //   shuffledArray.push(item);
-    //   this.cards = shuffledArray;
     // }
+    // this.cards.push(...shuffledArray);
 
     // SOLUTION
 
-    let len = this.cards.length;
-    while (len > 0) {
-      len--;
-      let temp = this.cards[len];
-      let rdmInd = Math.floor(Math.random() * len);
-      this.cards[len] = this.cards[rdmInd];
-      this.cards[rdmInd] = temp;
-    }
+    // let len = this.cards.length;
+    // while (len > 0) {
+    //   len--;
+    //   let temp = this.cards[len];
+    //   let rdmInd = Math.floor(Math.random() * len);
+    //   this.cards[len] = this.cards[rdmInd];
+    //   this.cards[rdmInd] = temp;
+    // }
 
-    return this.cards;
+    // SOLUTION Isin"s solution
+    //   const shuffledCards = [];
+    //   for (let i = this.cards.length; i >= 0; i--) {
+    //     let randomIndex = Math.floor(Math.random() * this.cards.length);
+    //     shuffledCards.push(this.cards[randomIndex]);
+    //     this.cards.splice(randomIndex, 1);
+    //   }
+
+    //   return this.cards;
   }
 
   checkIfPair(card1, card2) {
@@ -77,12 +85,12 @@ class MemoryGame {
   //   ) {
   //     return false;
   //   }
-  //   // if (this.pairsGuessed === this.cards.length / 2) {
+  //
   //   if (this.pairsGuessed === this.cards.length / 2) {
   //     console.log("YOU FINISH THE GAME");
   //     console.log(this.cards.length);
   //     return true;
   //   }
   //   return false;
-  // }
+  //
 }
